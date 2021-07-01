@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Hand
   attr_accessor :score, :cards
 
@@ -9,8 +11,13 @@ class Hand
   def count_score
     sums_array ||= []
     @cards.each { |card| sums_array << card.price }
-    sums_array[-1] = 1 if sums_array.last == 11 && sums_array.count(11) == 2
-    sums_array[-1] = 1 if sums_array.last == 11 && sums_array[0..-2].sum > 10
+    change_ace_score sums_array
     @score = sums_array.sum
+  end
+
+  private
+
+  def change_ace_score(sums_arr)
+    sums_arr[-1] = 1 if sums_arr.last == 11 && sums_arr.count(11) == 2
   end
 end
