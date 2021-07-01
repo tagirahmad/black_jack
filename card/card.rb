@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Card
   attr_reader :name, :suit
   attr_accessor :score
@@ -16,6 +18,6 @@ class Card
   end
 
   def face
-    "#{@suit.to_s} #{@name.to_s}"
+    "#{@suit} #{@name}"
   end
 end

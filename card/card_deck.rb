@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CardDeck
   attr_reader :card_deck, :name
 
